@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   <input type="text" id="login"> 
+   <input type="password" id="pwd"> 
+   <button type="button">点击</button>
+    <script src="jquery-2.1.4.min.js"></script>
+    <script>
+        $("button").click(function(){
+            $.ajax({
+                url:"http://127.0.0.1:3000/index",
+                type:'GET',
+                xhrFilds:{withCredentials:true},
+                dataType:'jsonp',
+                data:{
+                    name:$("#login").val(),
+                    pwd:$("#pwd").val()
+                },
+                contentType:'application/json',
+                success:function(data){
+                    console.log(data);
+                },
+                error:function(err){
+                    console.log("错误");
+                    console.log(err)
+                }
+            })
+        })
+    </script>
+</body>
+</html>
