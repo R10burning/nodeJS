@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>主页</h2>
+    <div id="d1"></div>
+    <script src="jquery-2.1.4.min.js"></script>
+    <script>
+        $.ajax({
+            url: "http://127.0.0.1:3000/list",
+            type: 'GET',
+            xhrFilds: { withCredentials: true },
+            dataType: 'jsonp',
+            contentType: 'application/json',
+            success: function (data) {
+                let html ="";
+                for(item of data) {
+                    html+= `<div>${item.name}</div>`
+                }
+                $('#d1').html(html);
+            },
+            error: function (err) {
+                console.log("错误");
+                console.log(err)
+            }
+        })
+    </script>
+</body>
+
+</html>

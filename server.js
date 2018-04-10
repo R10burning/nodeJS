@@ -1,3 +1,4 @@
+
 //1:加载对应模块
 const http = require("http");
 const express = require("express");
@@ -52,4 +53,14 @@ app.get("/index",(req,res)=>{
     //5:返回 json
     //6如果登录保存 uid session
 });
+})
+app.get("/list",(req,res)=>{
+  pool.getConnection((err,conn) =>{
+    if(err) throw new error;  
+    var sql = "SELECT name FROM sys_user";
+    conn.query(sql,(err,result)=>{
+      if(err) throw new error;
+      res.jsonp(result);
+    })
+  })
 })
