@@ -21,8 +21,8 @@
             contentType: 'application/json',
             success: function (data) {
                 let html ="";
-                for(item of data) {
-                    html+= `<div>${item.name}</div>`
+                for(item in data) {
+                    html+= `<div>${item} : ${data[item]}</div>`
                 }
                 $('#d1').html(html);
             },

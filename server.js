@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");    //session
 const expressSession = require("express-session");//session
 const cors = require("cors");                      //cors
 const pool = require("./pool");
+const fs = require("fs");
 //导入加密模块
 const crypto = require("crypto");
 //2:引用连接池
@@ -57,10 +58,12 @@ app.get("/index", (req, res) => {
 app.get("/list", (req, res) => {
   pool.getConnection((err, conn) => {
     if (err) throw new error;
-    var sql = "SELECT name FROM sys_user";
+    var sql = "SELECT user_name FROM sys_car";
     conn.query(sql, (err, result) => {
       if (err) throw new error;
-      res.jsonp(result);
+      fs.readFile('./package.json',(err,data)=>{
+      res.jsonp(JSON.parse(data.toString()));
+      })
     })
   })
 })
