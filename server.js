@@ -57,10 +57,10 @@ app.get("/index", (req, res) => {
 })
 app.get("/list", (req, res) => {
   pool.getConnection((err, conn) => {
-    if (err) throw new error;
+    if (err) throw err;
     var sql = "SELECT user_name FROM sys_car";
     conn.query(sql, (err, result) => {
-      if (err) throw new error;
+      if (err) throw  err;
       fs.readFile('./package.json',(err,data)=>{
       res.jsonp(JSON.parse(data.toString()));
       })
