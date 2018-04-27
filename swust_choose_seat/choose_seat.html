@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>详情</title>
+<link href="css/seat.css" type="text/css" rel="stylesheet" />
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="js/layer-v3.0.3/layer/mobile/need/layer.css" rel="stylesheet" type="text/css" />
+<link href="js/layer-v3.0.3/layer/mobile/need/layer.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/phone.js" ></script>
+<script type="text/javascript" src="js/layer-v3.0.3/layer/mobile/layer.js"></script>
+</head>
+
+<body>
+<div class="whole">
+
+	<header class="header">
+        <a href="javascript:history.back(-1)" class="fa fa-angle-left"></a>
+        <span class="names">选座详情</span>
+    </header>
+    
+    <div class="seat_head">
+    	<h3>五四青年节大型压出活动</h3>
+        <span>
+        	<a>今天07-06 19:00 这是一场神奇的演出</a>
+        </span>
+    </div>
+    
+    <div class="seat_show">
+    	<ul>
+        	<li>
+            	<i></i>
+                <span>可选</span>
+            </li>
+            <li>
+            	<i></i>
+                <span>锁定</span>
+            </li>
+            <li>
+            	<i></i>
+                <span>已选</span>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="seat_choose">
+    	<div class="number" id="num"></div>
+    	<div class="seats" id="seats"></div>
+        
+    </div>
+    <div class="buttons">确认选择</div>
+
+</div>
+
+<script>
+$(function(){
+	var html='';
+		html+='<ul class="touchs" id="touchs"><div class="screen">演播舞台</div>';
+		for(var i=1; i<=1178; i++){
+            /*锁定座位*/
+            var lock = ( i > 89 && i < 101 ? 'lock' : '');
+            /* 空白地带 */
+            var blank = ((i>=1 && i<=7 || i>=15 && i<=20 || i >= 43 && i <= 48 || i >= 56 && i <= 62 || i >= 63 && i <=68 || i >= 77 && i <= 82 || i >= 106 && i <= 111
+            || i >= 120 && i <=124 || i >= 125 && i <= 128|| i >= 138 && i <= 143 || i >= 168 && i <= 173|| i >= 183 && i <= 189 || i >= 200 && i <= 205 || i >= 231 && i <= 236
+            || i >= 247 && i <= 250 || i >= 260 && i <= 266|| i >= 293 && i <= 298|| i >= 309 && i <= 312|| i >= 323 && i <= 328|| i >= 356 && i <= 361|| i >= 372 && i <= 373
+            || i >= 384 && i <= 389 || i >= 418 && i <= 423|| i >= 434 && i <= 437|| i >= 446 && i <= 451|| i >= 481 && i <= 486|| i >= 507 && i <= 512|| i >= 543 && i <= 548
+            || i >= 559 && i <= 620|| i >= 621 && i <= 623|| i >= 635 && i <= 640|| i >= 664 && i <= 669|| i >= 681 && i <= 684|| i >= 697 && i <= 702|| i >= 725 && i <= 730
+            || i >= 743 && i <= 746|| i >= 760 && i <= 765|| i >= 787 && i <= 792|| i >= 805 && i <= 809|| i >= 822 && i <= 827|| i >= 848 && i <= 853|| i >= 866 && i <= 873
+            || i >= 885 && i <= 890|| i >= 910 && i <= 915|| i >= 927 && i <= 935|| i >= 947 && i <= 952|| i >= 971 && i <= 976|| i >= 988 && i <= 998|| i >= 1010 && i <= 1015
+            || i >= 1033 && i <= 1038|| i >= 1050 && i <= 1060|| i >= 1072 && i <= 1077|| i >= 1094 && i <= 1099|| i >= 1111 && i <= 1128|| i >= 1135 && i <= 1140
+            || i >= 1156 && i <= 1161|| i >= 1168 && i <= 1178
+            ) ? 'blank' : '');
+            /* 锁定或空白地带样式添加 */
+			html+='<li class="'+lock+blank+'">';
+			html+='<input type="checkbox" name="seat-'+i+'" id="seat-'+i+'" data-num="'+i+'"/>';
+			html+='<label for="seat-'+i+'"></label>';
+			html+='</li>';
+		}
+		html+='<div class="the_best"></div><div class="crossnum" id="crossnum"></div></ul>';
+		$('#seats').html(html);
+		
+	
+	$('.lock').children('input').attr({'disabled':'disabled','checked':'checked'});
+	
+		/* 选座限制 */
+	$('.seats li input').on('click',function(){
+		var checklen = $('.seats li').not('.lock').children('input:checked').length;
+        checklen === 1 && popu("当前选择位置为"+$(this).attr("data-num"));
+		if(checklen>1){
+			popu('最多只能选择1个座位');
+			return false;  
+		}
+	});
+	
+	
+	//公用弹出层
+	function popu(content){
+		layer.open({
+			content: content
+			,skin: 'msg'
+			,time:1
+		});	
+	}
+	
+	/* 排数 */
+	var num='';
+		num+='<ul>';
+		for(var i=1; i<=19; i++){
+            if(i === 10){
+			    num+='<li style="color:transparent">'+10+'</li>';
+            }
+            else if(i>10){
+                num+='<li>'+(i-1)+'</li>';
+            }
+            else{
+                num+= '<li>'+i+'</li>';
+            }
+		}
+		num+='</ul>';
+		$('#num').html(num);
+	/* 列数 */	
+	var crossnum='';
+		crossnum+='<ul>';
+		for(var j=1; j<=62; j++){
+			crossnum+='<li>'+j+'</li>';
+		}
+		html+='</ul>';
+        $('#crossnum').html(crossnum);
+
+    /* 确认选择 */
+	$(".buttons:contains('确认选择')").click(function(){
+        var checkNum = $('.seats li').not('.lock').children('input:checked').length;
+        checkNum === 0 && popu("当前没选择任何位置")
+    })
+})
+</script>
+
+<!---拖拽js--->
+<script>
+$(function(){
+    var flag = false;
+    var cur = {
+        x:0,
+        y:0
+    }
+    var nx,ny,dx,dy,x,y ;
+    function down(){
+        flag = true;
+        var touch ;
+        if(event.touches){
+            touch = event.touches[0];
+        }else {
+            touch = event;
+        }
+        cur.x = touch.clientX;
+        cur.y = touch.clientY;
+        dx = div2.offsetLeft;
+        dy = div2.offsetTop;
+    }
+    function move(){
+        if(flag){
+            var touch ;
+            if(event.touches){
+                touch = event.touches[0];
+            }else {
+                touch = event;
+            }
+            nx = touch.clientX - cur.x;
+            ny = touch.clientY - cur.y;
+            x = dx+nx;
+            y = dy+ny;
+            div2.style.left = x+"px";
+            //div2.style.top = y +"px";
+
+			
+            //阻止页面的滑动默认事件
+            document.addEventListener("touchmove",function(){
+                //event.preventDefault();
+            },false);
+        }
+    }
+    //鼠标释放时候的函数
+    function end(){
+        flag = false;
+    }
+    var div2 = document.getElementById("touchs");
+    div2.addEventListener("mousedown",function(){
+        down();
+    },false);
+    div2.addEventListener("touchstart",function(){
+        down();
+    },false)
+    div2.addEventListener("mousemove",function(){
+        move();
+    },false);
+    div2.addEventListener("touchmove",function(){
+        move();
+    },false)
+    document.body.addEventListener("mouseup",function(){
+        end();
+    },false);
+    div2.addEventListener("touchend",function(){
+        end();
+    },false);
+	
+});
+</script>
+
+</body>
+</html>

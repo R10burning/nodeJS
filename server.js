@@ -71,3 +71,10 @@ app.get("/list", (req, res) => {
     })
   })
 })
+app.use(express.static("./swust_choose_seat"));
+
+app.get("/seats", (req, res) => {
+  res.sendFile("./swust_choose_seat/choose_seat.html",(err,data)=>{
+    console.log(data.toString());
+  });
+})
