@@ -18,9 +18,9 @@ const crypto = require("crypto");
 //3:创建express 对象
 var app = express();
 var server = http.createServer(app);
-server.listen(3000);
+server.listen(8080);
 app.use(cors({
-  origin: ["http://127.0.0.1"],
+  origin: ["http://192.168.3.48"],
   credentials: true
 }));
 //4.2:post  req.body.uname
