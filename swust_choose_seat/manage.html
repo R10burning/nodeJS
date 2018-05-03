@@ -1,0 +1,250 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0;" />
+    <title>管理活动</title>
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/tickets.css" type="text/css" rel="stylesheet" />
+    <link href="js/layer-v3.0.3/layer/mobile/need/layer.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/phone.js"></script>
+    <script type="text/javascript" src="js/layer-v3.0.3/layer/mobile/layer.js"></script>
+    <style type="text/css">
+        .my-check+label {
+            background-color: white;
+            border-radius: 5px;
+            border: 1px solid #d3d3d3;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 20px;
+        }
+
+        .my-check:checked+label {
+            background-color: #4ad3fe;
+            color: #fff;
+        }
+
+        .my-check:checked+label:after {
+            content: "\2714";
+        }
+
+        .choose-item {
+            position: absolute;
+            left: 0;
+            top: 8px;
+        }
+
+        ul.operation {
+            background: #fff;
+            padding: 10px 65px;
+        }
+
+        ul.operation li {
+            display: inline-block;
+            color: #4ad3fe;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+        ul.operation li a{
+             color: #4ad3fe;
+        }
+        .wrap-btn {
+            padding-left: 15px;
+        }
+
+        .wrap-btn button {
+            color: #fff;
+            background-color: #4ad3fe;
+            font-size: 18px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: none;
+            display: none;
+            outline: 0;
+        }
+
+        .layui-m-layercont {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="whole">
+
+        <header class="header">
+            <a href="javascript:history.back(-1)" class="fa fa-angle-left" style="visibility: hidden"></a>
+            <span class="names">管理活动</span>
+        </header>
+    </div>
+
+    <ul class="operation">
+        <li>
+            <a href="newAdd.html">新建</a>
+        </li>
+        <li>
+            <a href="newAdd.html">修改</a>
+        </li>
+        <li>删除</li>
+        <li>按发布时间倒叙排列</li>
+    </ul>
+
+    <div class="tickets-list">
+        <ul>
+            <li>
+                <div class="ticket-info">
+                    <div class="choose-item">
+                        <input type="checkbox" id="myCheck1" class="my-check">
+                        <label for="myCheck1"></label>
+                    </div>
+                    <textarea class="start" rows="1" disabled>五四青年节大型演出活动</textarea>
+                    <textarea rows="1" disabled>开始时间：2018/05/02 17:50</textarea>
+                    <textarea rows="1" disabled>发布时间：2018/04/02 15:00</textarea>
+                    <textarea rows="1" disabled>发布时人：张三</textarea>
+                    <div class="wrap-btn">
+                        <button type="button">完成</button>
+                    </div>
+                </div>
+                <div class="buy-btn">
+                    <a href="choose_seat.html">选座</a>
+                </div>
+            </li>
+            <li>
+                <div class="ticket-info">
+                    <div class="choose-item">
+                        <input type="checkbox" id="myCheck2" class="my-check">
+                        <label for="myCheck2"></label>
+                    </div>
+                    <textarea class="start" rows="1" disabled>五四青年节大型演出活动</textarea>
+                    <textarea rows="1" disabled>开始时间：2018/05/02 17:50</textarea>
+                    <textarea rows="1" disabled>发布时间：2018/04/02 15:00</textarea>
+                    <textarea rows="1" disabled>发布时人：张三</textarea>
+                    <div class="wrap-btn">
+                        <button type="button">完成</button>
+                    </div>
+                </div>
+                <div class="buy-btn">
+                    <a href="choose_seat.html" class="disable">未开始</a>
+                </div>
+            </li>
+            <li>
+                <div class="ticket-info">
+                    <div class="choose-item">
+                        <input type="checkbox" id="myCheck3" class="my-check">
+                        <label for="myCheck3"></label>
+                    </div>
+                    <textarea class="start" rows="1" disabled>五四青年节大型演出活动</textarea>
+                    <textarea rows="1" disabled>开始时间：2018/05/02 17:50</textarea>
+                    <textarea rows="1" disabled>发布时间：2018/04/02 15:00</textarea>
+                    <textarea rows="1" disabled>发布时人：张三</textarea>
+                    <div class="wrap-btn">
+                        <button type="button">完成</button>
+                    </div>
+                </div>
+                <div class="buy-btn">
+                    <a href="choose_seat.html">选座</a>
+                </div>
+            </li>
+            <li>
+                <div class="ticket-info">
+                    <div class="choose-item">
+                        <input type="checkbox" id="myCheck4" class="my-check">
+                        <label for="myCheck4"></label>
+                    </div>
+                    <textarea class="start" rows="1" disabled>五四青年节大型演出活动</textarea>
+                    <textarea rows="1" disabled>开始时间：2018/05/02 17:50</textarea>
+                    <textarea rows="1" disabled>发布时间：2018/04/02 15:00</textarea>
+                    <textarea rows="1" disabled>发布时人：张三</textarea>
+                    <div class="wrap-btn">
+                        <button type="button">完成</button>
+                    </div>
+                </div>
+                <div class="buy-btn ">
+                    <a href="choose_seat.html" class="disable">已结束</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    </div>
+
+    <script type="text/javascript">
+        //公用弹出层
+        function _alert(content) {
+            layer.open({
+                content: content
+                , skin: 'msg'
+                , time: 1
+            });
+        }
+        $(function () {
+            $('.tickets-list').on('click', '.buy-btn>a', function () {
+                if ($(this).hasClass('disable')) $(this).attr("href", "javascript:");
+            })
+
+            /* 新建 */
+            $('.operation').on('click', 'li', function () {
+                var content = $(this).text();
+                // if (content === "新建") {
+                //     var html = "<div style='padding:20px;text-align:center;'>" +
+                //         "<div style='margin-bottom:10px;'>" +
+                //         "<span style='font-size:24px;vertical-align:top;margin-top:6px;display:inline-block;width:120px;text-align:right;'>活动名：</span> <textarea rows='1' style='font-size:24px;padding-left:20px;border:1px solid #4ad3fe;'></textarea>" +
+                //         "</div>" +
+                //         "<div style='margin-bottom:10px;'>" +
+                //         "<span style='font-size:24px;vertical-align:top;margin-top:6px;display:inline-block;width:120px;text-align:right;'>开始时间：</span> <textarea rows='1' style='font-size:24px;padding-left:20px;border:1px solid #4ad3fe;'></textarea>" +
+                //         "</div>" +
+                //         "<div style='margin-bottom:10px;'>" +
+                //         "<span style='font-size:24px;vertical-align:top;margin-top:6px;display:inline-block;width:120px;text-align:right;'>发布人：</span> <textarea rows='1' style='font-size:24px;padding-left:20px;border:1px solid #4ad3fe;'></textarea>" +
+                //         "</div>" +
+                //         "<button type='button' style='outline:0;padding:10px 20px;color:#fff;background-color:#4ad3fe;border:none;border-radius:5px;font-size:18px;margin-top:20px;'>发布</button>" +
+                //         "<div>"
+                //     var index = layer.open({
+                //         // type: 3,
+                //         // skin: 'layui-layer-rim', //加上边框
+                //         area: ['100%', '100%'], //宽高
+                //         content: html
+                //     });
+                // } else if (content === "修改") {
+                //     var choose = $('.choose-item input[type=checkbox]:checked').length;
+                //     if (choose === 0) {
+                //         _alert('请选择要修改的活动');
+                //     } else if (choose === 1) {
+                //         $('.choose-item input[type=checkbox]:checked').parent().siblings('textarea').attr('disabled', false).addClass('focus').next().children('button').show().click(function () {
+                //             $('.choose-item input[type=checkbox]:checked').parent().siblings('textarea').attr('disabled', true).removeClass('focus');
+                //             $(this).hide();
+                //         });
+                //     }
+                //     else {
+                //         _alert('最多只能选择一个活动');
+                //     }
+                // }
+                if (content === "删除") {
+                    var choose = $('.choose-item input[type=checkbox]:checked').length;
+                    if (choose === 0) {
+                        _alert('请选择要删除的活动');
+                    }
+                    else {
+                        layer.open({
+                            content: '您确定要删除选中活动吗？'
+                            , btn: ['确认', '取消']
+                            , yes: function (index) {
+                                $('.choose-item input[type=checkbox]:checked').parent().parent().parent().remove();
+                                layer.close(index);
+                            }
+                        });
+                    }
+
+                }
+
+            })
+        })
+    </script>
+
+    </div>
+
+</html>

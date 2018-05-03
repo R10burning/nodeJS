@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0;"/>
+<title>活动列表</title>
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="css/tickets.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="js/phone.js" ></script>
+<script type="text/javascript" src="js/menu_x.js"></script>
+</head>
+
+<body>
+<div class="whole">
+
+	<header class="header">
+        <a href="javascript:history.back(-1)" class="fa fa-angle-left"></a>
+        <span class="names">活动列表</span>
+    </header>
+    
+    <div class="tips">温馨提示：请在活动开始前30分钟入场</div>
+    
+    <div class="tab date">
+        <!---tab日期标签滑动-->
+        <div id="J_MenuX">
+            <div class="xs-container">
+                <ul class="xs-content nav nav-pills nav-justified" id="menus_xx" _xx="0">
+                    <li>7-05(今天)</li>
+                    <li>7-06</li>
+                    <li>7-07</li>
+                    <li>7-08</li>
+                    <li>7-09</li>
+                    <li>7-10</li>
+                    <li>7-11</li>
+                </ul>
+            </div>
+        </div>
+        <!--tab标签滑动END-->
+    </div>
+    
+    <div class="tickets-list">
+    	<ul>
+        	<li>
+            	<div class="ticket-info">
+                    <p class="start">五四青年节大型演出活动</p>
+                    <p>开始时间：17:50</p>
+                    <p>发布时间：2018/04/02 15:00</p>
+                </div>
+                <div class="buy-btn">
+                    <a href="choose_seat.html">选座</a>
+                </div>
+            </li>
+            <li>
+                <div class="ticket-info">
+                    <p class="start">春节年欢晚会</p>
+                    <p>开始时间：17:50</p>
+                    <p>发布时间：2018/04/02 15:00</p>
+                </div>
+                <div class="buy-btn">
+                    <a href="choose_seat.html" class="disable">未开始</a>
+                </div>
+            </li>
+            <li>
+                <div class="ticket-info">
+                    <p class="start">五四青年节大型演出活动</p>
+                    <p>开始时间：17:50</p>
+                    <p>发布时间：2018/04/02 15:00</p>
+                </div>
+                <div class="buy-btn">
+                    <a href="choose_seat.html">选座</a>
+                </div>
+            </li>
+            <li>
+                <div class="ticket-info">
+                    <p class="start">五四青年节大型演出活动</p>
+                    <p>开始时间：2018/05/02 17:50</p>
+                    <p>发布时间：2018/04/02 15:00</p>
+                </div>
+                <div class="buy-btn ">
+                    <a href="choose_seat.html" class="disable">已结束</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+</div>
+
+<script type="text/javascript">
+	var menux = new menuX("#J_MenuX",0);
+</script>
+
+<script type="text/javascript">
+$(function(){
+    $('.tickets-list').on('click','.buy-btn>a',function(){
+        if($(this).hasClass('disable')) $(this).attr("href","javascript:");
+    })
+		
+})
+</script>
+
+</body>
+</html>
