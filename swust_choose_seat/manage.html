@@ -24,6 +24,10 @@
             line-height: 20px;
         }
 
+        .my-check {
+            visibility: hidden;
+        }
+
         .my-check:checked+label {
             background-color: #4ad3fe;
             color: #fff;
@@ -50,9 +54,11 @@
             cursor: pointer;
             margin-right: 20px;
         }
-        ul.operation li a{
-             color: #4ad3fe;
+
+        ul.operation li a {
+            color: #4ad3fe;
         }
+
         .wrap-btn {
             padding-left: 15px;
         }
@@ -71,6 +77,19 @@
         .layui-m-layercont {
             font-size: 30px;
         }
+
+        @media (max-width: 768px) {
+            .my-check+label {
+                border-radius: 5px;
+                width: 40px;
+                height: 40px;
+                text-align: center;
+                line-height: 40px;
+            }
+            .tickets-list ul li .ticket-info {
+                padding-left: 50px;
+            }
+        }
     </style>
 </head>
 
@@ -87,9 +106,7 @@
         <li>
             <a href="newAdd.html">新建</a>
         </li>
-        <li>
-            <a href="newAdd.html">修改</a>
-        </li>
+        <li>修改</li>
         <li>删除</li>
         <li>按发布时间倒叙排列</li>
     </ul>
@@ -209,21 +226,19 @@
                 //         area: ['100%', '100%'], //宽高
                 //         content: html
                 //     });
-                // } else if (content === "修改") {
-                //     var choose = $('.choose-item input[type=checkbox]:checked').length;
-                //     if (choose === 0) {
-                //         _alert('请选择要修改的活动');
-                //     } else if (choose === 1) {
-                //         $('.choose-item input[type=checkbox]:checked').parent().siblings('textarea').attr('disabled', false).addClass('focus').next().children('button').show().click(function () {
-                //             $('.choose-item input[type=checkbox]:checked').parent().siblings('textarea').attr('disabled', true).removeClass('focus');
-                //             $(this).hide();
-                //         });
-                //     }
-                //     else {
-                //         _alert('最多只能选择一个活动');
-                //     }
-                // }
-                if (content === "删除") {
+                // } 
+                if (content.indexOf("修改") > -1) {
+                    var choose = $('.choose-item input[type=checkbox]:checked').length;
+                    if (choose === 0) {
+                        _alert('请选择要修改的活动');
+                    } else if (choose === 1) {
+                        location.href = 'newAdd.html';
+                    }
+                    else {
+                        _alert('最多只能选择一个活动');
+                    }
+                }
+                if (content.indexOf("删除") > -1) {
                     var choose = $('.choose-item input[type=checkbox]:checked').length;
                     if (choose === 0) {
                         _alert('请选择要删除的活动');
